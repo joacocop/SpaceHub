@@ -1,0 +1,71 @@
+<div class="missions-container">
+  <h2>CRUD de Misiones</h2>
+  <p class="subtitle">Gestiona las misiones espaciales</p>
+
+  <div class="missions-header">
+    <button class="add-btn" (click)="openModal()">+ Nueva Misión</button>
+  </div>
+
+  <div class="missions-grid">
+    <div
+      *ngFor="let mission of missions"
+      class="mission-card"
+      [class.selected]="selectedMission?.id === mission.id"
+      (click)="selectMission(mission)">
+      <div class="card-header">
+        <h3>{{ mission.name }}</h3>
+        <span [class]="getStatusClass(mission.status)">{{ getStatusLabel(mission.status) }}</span>
+      </div>
+      <p class="destination">Destino: {{ mission.destination }}</p>
+      <p class="date">Lanzamiento: {{ mission.launchDate | date:'mediumDate' }}</p>
+      <p class="crew">Tripulación: {{ mission.crew }}</p>
+      <p class="description">{{ mission.description }}</p>
+      <div class="card-actions">
+        <button class="edit-btn" (click)="openModal(mission); $event.stopPropagation()">Editar</button>
+        <button class="delete-btn" (click)="deleteMission(mission.id); $event.stopPropagation()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h3>{{ isEditing ? 'Editar Misión' : 'Nueva Misión' }}</h3>
+        <button class="close-btn" (click)="closeModal()">×</button>
+      </div>
+      <form (ngSubmit)="saveMission()">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" [(ngModel)]="formData.name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Destino</label>
+          <input type="text" [(ngModel)]="formData.destination" name="destination" required>
+        </div>
+        <div class="form-group">
+          <label>Fecha de Lanzamiento</label>
+          <input type="date" [(ngModel)]="formData.launchDate" name="launchDate" required>
+        </div>
+        <div class="form-group">
+          <label>Estado</label>
+          <select [(ngModel)]="formData.status" name="status">
+            <option *ngFor="let status of statuses" [value]="status">{{ getStatusLabel(status) }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Tripulación</label>
+          <input type="number" [(ngModel)]="formData.crew" name="crew" min="0">
+        </div>
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea [(ngModel)]="formData.description" name="description" rows="3"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="cancel-btn" (click)="closeModal()">Cancelar</button>
+          <button type="submit" class="save-btn">{{ isEditing ? 'Guardar' : 'Crear' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

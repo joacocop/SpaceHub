@@ -7,6 +7,8 @@ import { TrajectoryComponent } from './components/trajectory/trajectory.componen
 import { AstronautsComponent } from './components/astronauts/astronauts.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { LaunchHistoryComponent } from './components/launch-history/launch-history.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
+import { MissionsComponent } from './components/missions/missions.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'astronauts', component: AstronautsComponent },
   { path: 'chat', component: ChatComponent },
   { path: 'launch-history', component: LaunchHistoryComponent },
+  { path: 'alerts', component: AlertsComponent },
+  { path: 'missions', component: MissionsComponent },
   { path: '**', redirectTo: '/home' }
 ];
 

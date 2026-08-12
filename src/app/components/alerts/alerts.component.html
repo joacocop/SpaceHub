@@ -1,0 +1,43 @@
+<div class="alerts-container">
+  <h2>Alertas en Tiempo Real</h2>
+  <p class="subtitle">Sistema de notificaciones de la misión</p>
+
+  <div class="alerts-header">
+    <div class="stats">
+      <span class="total">Total: {{ alerts.length }}</span>
+      <span class="unread" *ngIf="unreadCount > 0">No leídas: {{ unreadCount }}</span>
+    </div>
+    <div class="actions">
+      <button class="mark-read-btn" (click)="markAllAsRead()" *ngIf="unreadCount > 0">
+        Marcar todo como leído
+      </button>
+      <button class="clear-btn" (click)="clearAll()" *ngIf="alerts.length > 0">
+        Limpiar todo
+      </button>
+    </div>
+  </div>
+
+  <div class="alerts-list" *ngIf="alerts.length > 0">
+    <div
+      *ngFor="let alert of alerts"
+      class="alert-item"
+      [ngClass]="'alert-' + alert.type"
+      [class.unread]="!alert.read"
+      (click)="markAsRead(alert.id)">
+      <div class="alert-icon">{{ getAlertIcon(alert.type) }}</div>
+      <div class="alert-content">
+        <div class="alert-header">
+          <span class="alert-title">{{ alert.title }}</span>
+          <span class="alert-time">{{ alert.timestamp | date:'shortTime' }}</span>
+        </div>
+        <p class="alert-message">{{ alert.message }}</p>
+      </div>
+      <button class="delete-btn" (click)="deleteAlert(alert.id); $event.stopPropagation()">×</button>
+    </div>
+  </div>
+
+  <div class="no-alerts" *ngIf="alerts.length === 0">
+    <span class="no-alerts-icon">🔔</span>
+    <p>No hay alertas en este momento</p>
+  </div>
+</div>

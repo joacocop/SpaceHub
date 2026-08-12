@@ -13,6 +13,8 @@ import { TrajectoryComponent } from './components/trajectory/trajectory.componen
 import { AstronautsComponent } from './components/astronauts/astronauts.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { LaunchHistoryComponent } from './components/launch-history/launch-history.component';
+import { AlertsComponent } from './components/alerts/alerts.component';
+import { MissionsComponent } from './components/missions/missions.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
@@ -25,6 +27,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     AstronautsComponent,
     ChatComponent,
     LaunchHistoryComponent,
+    AlertsComponent,
+    MissionsComponent,
     FilterPipe
   ],
   imports: [

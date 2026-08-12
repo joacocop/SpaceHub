@@ -1,0 +1,228 @@
+.missions-container {
+  padding: 40px 20px;
+}
+
+.missions-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+.missions-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-btn {
+  background: linear-gradient(90deg, #00ff88, #00d4ff);
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 25px;
+}
+
+.missions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.mission-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.mission-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.mission-card.selected {
+  border-color: #00d4ff;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  color: #00d4ff;
+}
+
+.status-programada {
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.2);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.status-en_curso {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.2);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.status-completada {
+  color: #7b2cbf;
+  background: rgba(123, 44, 191, 0.2);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.status-cancelada {
+  color: #ff4444;
+  background: rgba(255, 68, 68, 0.2);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.destination, .date, .crew {
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.description {
+  opacity: 0.6;
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+.delete-btn {
+  background: rgba(255, 68, 68, 0.3);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.modal-header h3 {
+  color: #00d4ff;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.close-btn:hover {
+  opacity: 1;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #00d4ff;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #00d4ff;
+}
+
+.form-group select option {
+  background: #1a1a2e;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 10px 25px;
+}
+
+.save-btn {
+  background: linear-gradient(90deg, #00ff88, #00d4ff);
+  border-radius: 20px;
+  padding: 10px 25px;
+}
