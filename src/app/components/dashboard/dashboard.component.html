@@ -1,0 +1,56 @@
+<div class="dashboard-container">
+  <h2>Panel de Control Espacial</h2>
+
+  <div class="dashboard-grid">
+    <div class="data-panel">
+      <h3>Datos Activos</h3>
+      <div class="data-list">
+        <div
+          *ngFor="let data of spaceData"
+          class="data-item"
+          [class.selected]="selectedData?.id === data.id"
+          (click)="selectData(data)">
+          <div class="data-header">
+            <span class="data-name">{{ data.name }}</span>
+            <span class="data-type">{{ data.type }}</span>
+          </div>
+          <div class="data-footer">
+            <span [class]="getStatusClass(data.status)">{{ data.status }}</span>
+            <span class="last-update">{{ data.lastUpdate | date:'short' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-panel" *ngIf="selectedData">
+      <h3>Detalles</h3>
+      <div class="detail-content">
+        <p><strong>Nombre:</strong> {{ selectedData.name }}</p>
+        <p><strong>Tipo:</strong> {{ selectedData.type }}</p>
+        <p><strong>Estado:</strong> <span [class]="getStatusClass(selectedData.status)">{{ selectedData.status }}</span></p>
+        <p><strong>Última actualización:</strong> {{ selectedData.lastUpdate | date:'full' }}</p>
+      </div>
+      <button class="action-button">Actualizar Datos</button>
+    </div>
+
+    <div class="detail-panel placeholder" *ngIf="!selectedData">
+      <h3>Detalles</h3>
+      <p>Selecciona un elemento para ver sus detalles</p>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-value">{{ spaceData.length }}</span>
+      <span class="stat-label">Total Elementos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ (spaceData | filter:'status':'active').length }}</span>
+      <span class="stat-label">Activos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{{ (spaceData | filter:'status':'pending').length }}</span>
+      <span class="stat-label">Pendientes</span>
+    </div>
+  </div>
+</div>

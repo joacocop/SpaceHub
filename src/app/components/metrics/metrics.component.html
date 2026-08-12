@@ -1,0 +1,54 @@
+<div class="metrics-container">
+  <h2>Métricas en Tiempo Real</h2>
+
+  <div class="connection-status" [style.background-color]="getStatusColor()">
+    <span class="status-dot"></span>
+    {{ isConnected ? 'Conectado' : 'Desconectado' }}
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card solar">
+      <h3>Datos Solares</h3>
+      <div class="metric-value" *ngIf="solarData">
+        <span class="value">{{ formatValue(solarData.value) }}</span>
+        <span class="unit">W/m²</span>
+      </div>
+      <p class="source" *ngIf="solarData">{{ solarData.source }}</p>
+      <p class="timestamp" *ngIf="solarData">{{ solarData.timestamp | date:'medium' }}</p>
+    </div>
+
+    <div class="metric-card aurora">
+      <h3>Intensidad Aurora</h3>
+      <div class="metric-value" *ngIf="auroraData">
+        <span class="value">{{ formatValue(auroraData.value) }}</span>
+        <span class="unit">KP Index</span>
+      </div>
+      <p class="source" *ngIf="auroraData">{{ auroraData.source }}</p>
+      <p class="timestamp" *ngIf="auroraData">{{ auroraData.timestamp | date:'medium' }}</p>
+    </div>
+
+    <div class="metric-card iss">
+      <h3>Posición ISS</h3>
+      <div class="metric-value">
+        <div class="position">
+          <span>Lat: {{ formatValue(issPosition.latitude) }}°</span>
+          <span>Lon: {{ formatValue(issPosition.longitude) }}°</span>
+        </div>
+        <span class="altitude">{{ formatValue(issPosition.altitude, 0) }} km</span>
+      </div>
+      <p class="source">Tracking Satelital</p>
+    </div>
+  </div>
+
+  <div class="history-section">
+    <h3>Historial Reciente</h3>
+    <div class="history-list">
+      <div *ngFor="let item of metricsHistory" class="history-item">
+        <span class="history-type">{{ item.type }}</span>
+        <span class="history-value">{{ formatValue(item.value) }}</span>
+        <span class="history-time">{{ item.timestamp | date:'shortTime' }}</span>
+      </div>
+      <p *ngIf="metricsHistory.length === 0" class="no-data">Esperando datos...</p>
+    </div>
+  </div>
+</div>

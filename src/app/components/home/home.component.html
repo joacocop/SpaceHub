@@ -1,0 +1,29 @@
+<div class="home-container">
+  <section class="welcome-section">
+    <h2>Tu Centro de Control Espacial</h2>
+    <p>Explora el universo desde tu navegador con tecnología de vanguardia</p>
+    <button class="cta-button">Comenzar Exploración</button>
+  </section>
+
+  <section class="features-section">
+    <h3>Características Principales</h3>
+    <div class="features-grid">
+      <div *ngFor="let feature of features" class="feature-card">
+        <span class="feature-icon">{{ feature.icon }}</span>
+        <h4>{{ feature.title }}</h4>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tech-stack">
+    <h3>Tecnologías Utilizadas</h3>
+    <div class="tech-badges">
+      <span class="badge angular">Angular 17</span>
+      <span class="badge typescript">TypeScript</span>
+      <span class="badge rxjs">RxJS</span>
+      <span class="badge html">HTML5</span>
+      <span class="badge css">CSS3</span>
+    </div>
+  </section>
+</div>

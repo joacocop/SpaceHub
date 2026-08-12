@@ -1,0 +1,123 @@
+.home-container {
+  padding: 40px 20px;
+}
+
+.welcome-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.welcome-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-section p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  font-size: 1.1rem;
+  padding: 15px 40px;
+}
+
+.features-section {
+  margin-bottom: 40px;
+}
+
+.features-section h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #00d4ff;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.feature-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #00d4ff;
+}
+
+.feature-card p {
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  text-align: center;
+}
+
+.tech-stack h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #7b2cbf;
+}
+
+.tech-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.badge {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.badge.angular {
+  background: linear-gradient(90deg, #dd0031, #c3002f);
+}
+
+.badge.typescript {
+  background: linear-gradient(90deg, #3178c6, #235a97);
+}
+
+.badge.rxjs {
+  background: linear-gradient(90deg, #b7178c, #9d1679);
+}
+
+.badge.html {
+  background: linear-gradient(90deg, #e34f26, #c63d14);
+}
+
+.badge.css {
+  background: linear-gradient(90deg, #1572b6, #0d5d94);
+}

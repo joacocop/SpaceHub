@@ -1,0 +1,176 @@
+.metrics-container {
+  padding: 40px 20px;
+}
+
+.metrics-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #00ff88, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: fit-content;
+  margin: 0 auto 40px;
+  font-weight: bold;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+}
+
+.metric-card h3 {
+  color: #00d4ff;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.metric-card.solar {
+  border-color: rgba(255, 200, 0, 0.3);
+}
+
+.metric-card.aurora {
+  border-color: rgba(0, 255, 136, 0.3);
+}
+
+.metric-card.iss {
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.metric-value {
+  margin: 20px 0;
+}
+
+.value {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.unit {
+  font-size: 1.2rem;
+  color: #00d4ff;
+  margin-left: 10px;
+}
+
+.position {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.position span {
+  font-size: 1.3rem;
+}
+
+.altitude {
+  display: block;
+  margin-top: 15px;
+  font-size: 1.5rem;
+  color: #7b2cbf;
+}
+
+.source {
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.timestamp {
+  opacity: 0.5;
+  font-size: 0.85rem;
+}
+
+.history-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.history-section h3 {
+  color: #00d4ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.history-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transition: background 0.2s ease;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.history-type {
+  color: #7b2cbf;
+  font-weight: bold;
+}
+
+.history-value {
+  color: #00ff88;
+}
+
+.history-time {
+  opacity: 0.6;
+}
+
+.no-data {
+  text-align: center;
+  opacity: 0.5;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}

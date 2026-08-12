@@ -1,0 +1,68 @@
+<div class="launch-history-container">
+  <h2>Historial de Lanzamientos</h2>
+  <p class="subtitle">Registro completo de misiones espaciales</p>
+
+  <div class="filters">
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+        placeholder="Buscar por nombre, cohete o destino..."
+      />
+    </div>
+    <div class="filter-group">
+      <select [(ngModel)]="filterYear" (change)="onFilterYear()">
+        <option value="">Todos los años</option>
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+      </select>
+      <select [(ngModel)]="filterStatus" (change)="onFilterStatus()">
+        <option value="">Todos los estados</option>
+        <option *ngFor="let status of statuses" [value]="status">
+          {{ status | titlecase }}
+        </option>
+      </select>
+      <button class="clear-btn" (click)="clearFilters()">Limpiar</button>
+    </div>
+  </div>
+
+  <div class="results-info">
+    Mostrando {{ filteredLaunches.length }} de {{ launches.length }} lanzamientos
+  </div>
+
+  <div class="table-wrapper">
+    <table class="launch-table">
+      <thead>
+        <tr>
+          <th>Misión</th>
+          <th>Fecha</th>
+          <th>Cohete</th>
+          <th>Destino</th>
+          <th>Tripulación</th>
+          <th>Carga</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let launch of filteredLaunches">
+          <td class="mission-name">{{ launch.name }}</td>
+          <td>{{ launch.date | date:'mediumDate' }}</td>
+          <td>{{ launch.rocket }}</td>
+          <td>{{ launch.destination }}</td>
+          <td>{{ launch.crew }}</td>
+          <td>{{ launch.payload }}</td>
+          <td>
+            <span [class]="getStatusClass(launch.status)">
+              {{ launch.status | titlecase }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="no-results" *ngIf="filteredLaunches.length === 0">
+    <p>No se encontraron lanzamientos con los filtros seleccionados</p>
+    <button (click)="clearFilters()">Limpiar filtros</button>
+  </div>
+</div>

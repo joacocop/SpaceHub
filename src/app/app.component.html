@@ -1,0 +1,19 @@
+<div class="app-container">
+  <header>
+    <h1>{{ title }}</h1>
+    <nav>
+      <a routerLink="/home" routerLinkActive="active">Inicio</a>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/metrics" routerLinkActive="active">Métricas</a>
+    </nav>
+    <p>Explorando el universo con Angular + TypeScript + RxJS</p>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SpaceHub. Construido con Angular 17</p>
+  </footer>
+</div>

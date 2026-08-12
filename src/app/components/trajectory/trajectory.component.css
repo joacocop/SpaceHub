@@ -1,0 +1,107 @@
+.trajectory-container {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.trajectory-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.orbit-canvas {
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: #0c0c1d;
+}
+
+.controls {
+  margin-bottom: 30px;
+}
+
+.satellite-list {
+  margin-bottom: 30px;
+}
+
+.satellite-list h3 {
+  color: #00d4ff;
+  margin-bottom: 20px;
+}
+
+.satellite-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.satellite-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.satellite-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.satellite-card.selected {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.sat-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.sat-name {
+  font-weight: bold;
+}
+
+.sat-speed {
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+.info-panel {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.info-panel h3 {
+  color: #00d4ff;
+  margin-bottom: 15px;
+}
+
+.info-panel p {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.info-panel strong {
+  color: #00d4ff;
+}
+
+.active {
+  color: #00ff88;
+}

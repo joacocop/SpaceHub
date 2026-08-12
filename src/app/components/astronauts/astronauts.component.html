@@ -1,0 +1,43 @@
+<div class="astronauts-container">
+  <h2>Detalle de Astronautas</h2>
+  <p class="subtitle">Información en tiempo real de la tripulación</p>
+
+  <div class="astronauts-grid">
+    <div
+      *ngFor="let astro of astronauts"
+      class="astronaut-card"
+      [class.selected]="selectedAstronaut?.id === astro.id"
+      (click)="selectAstronaut(astro)">
+      <div class="card-header">
+        <span class="astro-image">{{ astro.image }}</span>
+        <span [class]="getStatusClass(astro.status)">{{ getStatusLabel(astro.status) }}</span>
+      </div>
+      <h3>{{ astro.name }}</h3>
+      <p class="role">{{ astro.role }}</p>
+      <p class="mission">{{ astro.mission }}</p>
+      <p class="days">{{ astro.daysInSpace }} días en espacio</p>
+    </div>
+  </div>
+
+  <div class="detail-panel" *ngIf="selectedAstronaut">
+    <h3>Monitoreo de Salud</h3>
+    <div class="health-grid">
+      <div class="health-item">
+        <span class="health-icon">❤️</span>
+        <span class="health-label">Frecuencia Cardíaca</span>
+        <span class="health-value">{{ selectedAstronaut.health.heartRate }} bpm</span>
+      </div>
+      <div class="health-item">
+        <span class="health-icon">🩸</span>
+        <span class="health-label">Presión Arterial</span>
+        <span class="health-value">{{ selectedAstronaut.health.bloodPressure }}</span>
+      </div>
+      <div class="health-item">
+        <span class="health-icon">💨</span>
+        <span class="health-label">Nivel de Oxígeno</span>
+        <span class="health-value">{{ selectedAstronaut.health.oxygenLevel }}%</span>
+      </div>
+    </div>
+    <p class="update-note">* Datos actualizados cada 3 segundos</p>
+  </div>
+</div>

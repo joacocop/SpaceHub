@@ -1,0 +1,36 @@
+<div class="trajectory-container">
+  <h2>Mapa de Trayectoria</h2>
+
+  <div class="canvas-wrapper">
+    <canvas #orbitCanvas class="orbit-canvas"></canvas>
+  </div>
+
+  <div class="controls">
+    <button (click)="toggleAnimation()">
+      {{ isAnimating ? 'Pausar' : 'Reanudar' }}
+    </button>
+  </div>
+
+  <div class="satellite-list">
+    <h3>Satélites Activos</h3>
+    <div class="satellite-cards">
+      <div
+        *ngFor="let sat of satellites"
+        class="satellite-card"
+        [class.selected]="selectedSatellite?.name === sat.name"
+        [style.border-color]="sat.color"
+        (click)="selectSatellite(sat)">
+        <span class="sat-dot" [style.background]="sat.color"></span>
+        <span class="sat-name">{{ sat.name }}</span>
+        <span class="sat-speed">Velocidad: {{ (sat.speed * 1000).toFixed(1) }} km/s</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-panel" *ngIf="selectedSatellite">
+    <h3>Detalles: {{ selectedSatellite.name }}</h3>
+    <p><strong>Radio orbital:</strong> {{ selectedSatellite.radius }} km</p>
+    <p><strong>Velocidad angular:</strong> {{ (selectedSatellite.speed * 1000).toFixed(2) }} rad/s</p>
+    <p><strong>Estado:</strong> <span class="active">Activo</span></p>
+  </div>
+</div>

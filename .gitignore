@@ -1,0 +1,39 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+
+# Dependencies
+/node_modules
+
+# IDEs
+/.idea
+.vscode/*
+!.vscode/extensions.json
+*.code-workspace
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Testing
+/coverage
+
+# Angular
+/.angular
+.angular/cache

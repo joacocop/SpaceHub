@@ -1,0 +1,49 @@
+<div class="chat-container">
+  <h2>Chat de Control</h2>
+  <p class="subtitle">Comunicación en tiempo real con la misión</p>
+
+  <div class="chat-window">
+    <div class="chat-header">
+      <span class="connection-status">● EN VIVO</span>
+      <span>Mission Control - SpaceHub</span>
+    </div>
+
+    <div class="chat-messages" #chatContainer>
+      <div
+        *ngFor="let msg of messages"
+        class="message"
+        [ngClass]="'message-' + msg.sender">
+        <div class="message-header">
+          <span class="sender">
+            {{ msg.sender === 'system' ? '🖥️ SISTEMA' : msg.sender === 'user' ? '👤 USUARIO' : '🛰️ MISIÓN' }}
+          </span>
+          <span class="timestamp">{{ msg.timestamp | date:'shortTime' }}</span>
+        </div>
+        <div class="message-content">{{ msg.content }}</div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input
+        type="text"
+        [(ngModel)]="userInput"
+        (keyup.enter)="sendMessage()"
+        placeholder="Escribe un comando (status, help, time...)"
+      />
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <div class="commands-help">
+    <h3>Comandos Disponibles</h3>
+    <div class="commands-list">
+      <span class="command">status</span>
+      <span class="command">help</span>
+      <span class="command">time</span>
+      <span class="command">fuel</span>
+      <span class="command">crew</span>
+      <span class="command">systems</span>
+      <span class="command">abort</span>
+    </div>
+  </div>
+</div>

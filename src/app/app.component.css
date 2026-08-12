@@ -1,0 +1,77 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+nav a {
+  padding: 10px 25px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+nav a.active {
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  border-color: transparent;
+}
+
+main {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
